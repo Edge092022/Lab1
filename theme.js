@@ -1,5 +1,5 @@
-/* T-02C: Persistent light/dark theme engine */
 const themeToggle = document.querySelector("#theme-toggle");
+const themeIcon = document.querySelector("#theme-icon");
 const root = document.documentElement;
 
 function applyTheme(theme) {
@@ -7,6 +7,7 @@ function applyTheme(theme) {
 
     root.dataset.theme = theme;
     themeToggle.setAttribute("aria-pressed", String(isDark));
+    themeIcon.textContent = isDark ? "☾" : "☀";
 }
 
 let savedTheme = "light";
