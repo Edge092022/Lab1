@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huỳnh Nhật Huyền | Portfolio</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./theme.js" defer></script>
+    <script src="./contact.js" defer></script>
+    <link rel="icon" href="data:,">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">
+        Skip to main content
+    </a>
+
+    <header role="banner" class="hero">
+        <button id="theme-toggle" type="button" aria-pressed="false">
+            <span id="theme-icon" aria-hidden="true">☀</span>
+            Dark mode
+        </button>
+
+        <img class="hero-portrait" src="./assets/images/images.jpg" alt="Portrait of Huỳnh Nhật Huyền" width="480"
+            height="480">
+
+        <h1>Huỳnh Nhật Huyền, IT Student</h1>
+
+        <p class="hero-introduction">
+            I am learning web development and UI/UX design.
+        </p>
+    </header>
+
+    <nav role="navigation" aria-label="Primary">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content" role="main" tabindex="-1">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                I am a student at the University of Information Technology,
+                VNU-HCM. I am learning web development and UI/UX design.
+            </p>
+        </section>
+        <!-- T-03.4: Categorized skills currently being learned -->
+        <section id="skills" aria-labelledby="skills-heading">
+            <h2 id="skills-heading">Skills</h2>
+            <p>I am currently learning the following skills.</p>
+
+            <ul class="skills-grid">
+                <li class="skill-category">
+                    <h3>Web Development</h3>
+                    <p class="skill-status">Currently learning</p>
+
+                    <ul class="skill-badges" aria-label="Web development skills">
+                        <li class="skill-badge">HTML</li>
+                        <li class="skill-badge">CSS</li>
+                        <li class="skill-badge">JavaScript</li>
+                    </ul>
+                </li>
+
+                <li class="skill-category">
+                    <h3>Design</h3>
+                    <p class="skill-status">Currently learning</p>
+
+                    <ul class="skill-badges" aria-label="Design skills">
+                        <li class="skill-badge">UI/UX</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section id="projects" aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Projects</h2>
+
+            <section class="project-grid" aria-label="Coursework projects">
+                <article class="project-card" aria-labelledby="project-one-heading">
+                    <h3 id="project-one-heading">
+                        Exercise 1: Semantic HTML Portfolio
+                    </h3>
+
+                    <p>
+                        A coursework portfolio focused on semantic HTML,
+                        heading structure, navigation, and a skip-link.
+                    </p>
+
+                    <ul class="project-tags" aria-label="Technologies used">
+                        <li>HTML</li>
+                    </ul>
+
+                    <p class="project-link-placeholder">
+                        Repository link pending — Exercise 1.
+                    </p>
+                </article>
+
+                <article class="project-card" aria-labelledby="project-two-heading">
+                    <h3 id="project-two-heading">
+                        Exercise 2: Responsive Portfolio with a Persistent Theme
+                    </h3>
+
+                    <p>
+                        A coursework portfolio with responsive layouts,
+                        CSS variables, and a light/dark theme saved in localStorage.
+                    </p>
+
+                    <ul class="project-tags" aria-label="Technologies used">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+
+                    <p class="project-link-placeholder">
+                        Repository link pending — Exercise 2.
+                    </p>
+                </article>
+            </section>
+        </section>
+        <section id="contact" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Contact</h2>
+            <p id="contact-notice">
+                Frontend demonstration only. This form does not send messages.
+            </p>
+
+            <form id="contact-form" aria-describedby="contact-notice">
+                <p class="form-field">
+                    <label for="contact-name">Name (required)</label>
+                    <input id="contact-name" name="name" type="text" autocomplete="name" required>
+                </p>
+
+                <p class="form-field">
+                    <label for="contact-email">Email (required)</label>
+                    <input id="contact-email" name="email" type="email" autocomplete="email" required>
+                </p>
+
+                <p class="form-field">
+                    <label for="contact-message">Message (required)</label>
+                    <textarea id="contact-message" name="message" rows="5" required></textarea>
+                </p>
+
+                <!-- Enabled after the demo submission handler is installed. -->
+                <button id="contact-submit" type="submit" disabled>
+                    Validate form
+                </button>
+
+                <p id="contact-status" role="status" aria-atomic="true"></p>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>
