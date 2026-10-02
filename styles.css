@@ -449,13 +449,15 @@ main>section {
 }
 
 /* T-03C: Empty state and retry control */
-#projects-empty {
+#projects-empty,
+#projects-error {
     display: grid;
     gap: var(--space-3);
     min-width: 0;
 }
 
-#projects-empty button {
+#projects-empty button,
+#projects-error button {
     justify-self: start;
     max-width: 100%;
     padding: var(--space-2) var(--space-4);
@@ -469,6 +471,7 @@ main>section {
 }
 
 #projects-empty button:focus-visible,
+#projects-error button:focus-visible,
 #projects-heading:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: var(--space-1);
