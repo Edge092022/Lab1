@@ -447,3 +447,29 @@ main>section {
 .project-link {
     margin-top: auto;
 }
+
+/* T-03C: Empty state and retry control */
+#projects-empty {
+    display: grid;
+    gap: var(--space-3);
+    min-width: 0;
+}
+
+#projects-empty button {
+    justify-self: start;
+    max-width: 100%;
+    padding: var(--space-2) var(--space-4);
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-small);
+    white-space: normal;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+}
+
+#projects-empty button:focus-visible,
+#projects-heading:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: var(--space-1);
+}
