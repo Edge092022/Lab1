@@ -77,9 +77,32 @@
             </ul>
         </section>
         <section id="projects" aria-labelledby="projects-heading">
-            <h2 id="projects-heading">Projects</h2>
+            <h2 id="projects-heading" tabindex="-1">Projects</h2>
 
-            <section class="project-grid" aria-label="Coursework projects">
+            <!-- Stable status region outside the busy content. -->
+            <p id="projects-status" role="status" aria-atomic="true">
+                Loading projects...
+            </p>
+
+            <!-- T-03A: Decorative loading placeholders. -->
+            <section id="projects-loading" aria-label="Project loading area" aria-busy="true">
+                <ul class="project-skeletons" aria-hidden="true">
+                    <li class="project-skeleton">
+                        <span class="skeleton-block skeleton-title"></span>
+                        <span class="skeleton-block skeleton-line"></span>
+                        <span class="skeleton-block skeleton-line"></span>
+                        <span class="skeleton-block skeleton-short"></span>
+                    </li>
+                    <li class="project-skeleton">
+                        <span class="skeleton-block skeleton-title"></span>
+                        <span class="skeleton-block skeleton-line"></span>
+                        <span class="skeleton-block skeleton-line"></span>
+                        <span class="skeleton-block skeleton-short"></span>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="project-grid" aria-label="Coursework projects" hidden>
                 <article class="project-card" aria-labelledby="project-one-heading">
                     <h3 id="project-one-heading">
                         Exercise 1: Semantic HTML Portfolio
