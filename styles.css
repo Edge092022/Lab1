@@ -1,0 +1,102 @@
+/* T-02A: Reusable design tokens */
+:root {
+    /* Colors */
+    --color-background: #ffffff;
+    --color-surface: #f1f5f9;
+    --color-text: #0f172a;
+    --color-text-muted: #475569;
+    --color-primary: #1d4ed8;
+    --color-border: #64748b;
+
+    /* Typography */
+    --font-family-base: Arial, Helvetica, sans-serif;
+    --font-size-base: 1rem;
+    --line-height-base: 1.6;
+
+    /* Spacing */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+
+    /* Borders */
+    --border-width: 1px;
+    --radius-small: 0.375rem;
+
+    /* Dark theme color tokens */
+    :root[data-theme="dark"] {
+        --color-background: #0f172a;
+        --color-surface: #1e293b;
+        --color-text: #f8fafc;
+        --color-text-muted: #cbd5e1;
+        --color-primary: #93c5fd;
+        --color-border: #94a3b8;
+    }
+}
+
+/* T-02A: Basic reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+figure,
+blockquote {
+    margin: 0;
+}
+
+ul,
+ol {
+    padding-inline-start: var(--space-6);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+img,
+video {
+    height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+/* Base styles using tokens */
+body {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+a {
+    color: var(--color-primary);
+}
+
+p {
+    overflow-wrap: break-word;
+}
