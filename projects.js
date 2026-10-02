@@ -4,6 +4,14 @@
     const loading = document.querySelector("#projects-loading");
     const dataRegion = document.querySelector("#projects-data");
     const status = document.querySelector("#projects-status");
+    const emptyRegion = document.querySelector("#projects-empty");
+    const emptyRetry = document.querySelector("#projects-empty-retry");
+    const projectsHeading = document.querySelector("#projects-heading");
+
+    const requestedScenario =
+        new URLSearchParams(window.location.search).get("projects");
+
+    let attemptCount = 0;
 
     const courseworkProjects = [
         {
@@ -31,15 +39,23 @@
     let isLoading = false;
 
     function simulateProjectLoad() {
-        // A fixed delay demonstrates asynchronous loading of local data.
-        // This step always resolves with the two coursework projects.
+        attemptCount += 1;
+        const currentAttempt = attemptCount;
+
+        // Local simulation only. No API or network request is made.
+        // ?projects=empty produces an empty first attempt.
+        // Retry always returns the local coursework data.
         return new Promise((resolve) => {
             window.setTimeout(() => {
+                if (requestedScenario === "empty" && currentAttempt === 1) {
+                    resolve([]);
+                    return;
+                }
+
                 resolve(courseworkProjects);
             }, 1200);
         });
     }
-
     function createProjectCard(project) {
         const article = document.createElement("article");
         article.className = "project-card";
@@ -113,5 +129,49 @@
         isLoading = false;
     }
 
-    void loadProjects();
-})();
+    async function loadProjects() {
+        if (isLoading) {
+            return;
+        }
+
+        isLoading = true;
+
+        // Move focus before hiding the activated retry button.
+        if (emptyRegion.contains(document.activeElement)) {
+            projectsHeading.focus();
+        }
+
+        emptyRegion.hidden = true;
+        dataRegion.hidden = true;
+        loading.hidden = false;
+        loading.setAttribute("aria-busy", "true");
+        component.dataset.state = "loading";
+        status.textContent = "Loading projects...";
+
+        const projects = await simulateProjectLoad();
+
+        if (projects.length === 0) {
+            loading.setAttribute("aria-busy", "false");
+            loading.hidden = true;
+            emptyRegion.hidden = false;
+            component.dataset.state = "empty";
+            status.textContent = "No projects found. Simulated result.";
+        } else {
+            renderProjects(projects);
+
+            loading.setAttribute("aria-busy", "false");
+            loading.hidden = true;
+            dataRegion.hidden = false;
+            component.dataset.state = "data";
+            status.textContent =
+                `${projects.length} projects loaded. Simulated result.`;
+        }
+
+        isLoading = false;
+    }
+    emptyRetry.addEventListener("click", () => {
+        void loadProjects();
+    });
+    isLoading = false;
+}
+}) ();
