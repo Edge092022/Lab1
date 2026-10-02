@@ -197,3 +197,52 @@ main>section {
     max-width: 45ch;
     color: var(--color-text-muted);
 }
+
+/* T-03.4: Responsive categorized skills */
+.skills-grid,
+.skill-badges {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,
+            minmax(min(100%, 15rem), 1fr));
+    gap: var(--space-4);
+}
+
+.skill-category {
+    display: grid;
+    align-content: start;
+    gap: var(--space-3);
+    min-width: 0;
+    padding: var(--space-4);
+    background-color: var(--color-background);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-small);
+    overflow-wrap: anywhere;
+}
+
+.skill-status {
+    color: var(--color-text-muted);
+}
+
+.skill-badges {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,
+            minmax(min(100%, 6rem), 1fr));
+    gap: var(--space-2);
+}
+
+.skill-badge {
+    min-width: 0;
+    padding: var(--space-1) var(--space-2);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-small);
+    text-align: center;
+    overflow-wrap: anywhere;
+}
