@@ -1,0 +1,9 @@
+[submodule "HW1"]
+	path = HW1
+	url = https://github.com/Edge092022/WD_HW1.git
+[submodule "HW2"]
+	path = HW2
+	url = https://github.com/Edge092022/HW2-Drumkit.git
+[submodule "HW3"]
+	path = HW3
+	url = https://github.com/Edge092022/HW3-Resilient-Landing-Page.git
